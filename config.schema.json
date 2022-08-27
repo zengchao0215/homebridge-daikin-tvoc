@@ -1,15 +1,21 @@
 {
-  "pluginAlias": "ExampleHomebridgePlugin",
+  "pluginAlias": "DaikinTvocPlugin",
   "pluginType": "platform",
   "singular": true,
   "schema": {
     "type": "object",
     "properties": {
-      "name": {
-        "title": "Name",
+      "ip": {
+        "title": "HomeAssistant IP",
         "type": "string",
         "required": true,
-        "default": "Example Dynamic Platform"
+        "default": "192.168.50.100"
+      },
+      "port": {
+        "title": "HomeAssistant Port",
+        "type": "string",
+        "required": true,
+        "default": "8123"
       }
     }
   }
