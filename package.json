@@ -2,8 +2,8 @@
   "private": false,
   "displayName": "Daikin Tvoc",
   "name": "homebridge-daikin-tvoc",
-  "version": "1.0.2",
-  "description": "A short description about what your plugin does.",
+  "version": "1.0.3",
+  "description": "get tvoc from homeassistant",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",

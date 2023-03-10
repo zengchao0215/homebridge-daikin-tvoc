@@ -35,6 +35,7 @@ export class DaikinTvocPlatformAccessory {
     this.service = this.accessory.getService(this.platform.Service.AirQualitySensor)
       || this.accessory.addService(this.platform.Service.AirQualitySensor);
 
+
     this.service.getCharacteristic(this.platform.Characteristic.AirQuality)
       .onGet(this.handleAirQualityGet.bind(this));
 
@@ -82,9 +83,15 @@ export class DaikinTvocPlatformAccessory {
       });
 
       repo.then((data) => {
-        // this.platform.log.info('repo: %s', data['data']);
-        this.states.tvocValueMg = parseFloat(data['data'].state);
-        this.states.tvocValue = parseFloat(data['data'].state) * 1000;
+        try{
+          if(data['data']){
+            // this.platform.log.info('repo: %s', data['data']);
+            this.states.tvocValueMg = parseFloat(data['data'].state);
+            this.states.tvocValue = parseFloat(data['data'].state) * 1000;
+          }
+        }catch(error){
+          this.platform.log.error('get tvoc error');
+        }
       });
     } catch (error) {
       this.platform.log.error('get tvoc error');
